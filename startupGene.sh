@@ -1,2 +1,1 @@
-sudo su
-/opt/gene/tools/service-check/check 
+sudo /opt/gene/tools/service-check/check 
