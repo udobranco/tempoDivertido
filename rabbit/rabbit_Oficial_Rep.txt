@@ -1,0 +1,7 @@
+
+launch container with rabbitmq offical image. Image name will be some-rabbit and port 55555 will be expose to tcp 
+
+
+docker run -d --hostname my-rabbit --name some-rabbit --expose 55555 rabbitmq:3
+
+
