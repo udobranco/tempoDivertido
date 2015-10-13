@@ -1,4 +1,4 @@
-var qSocket = "amqp://localhost";
+var qSocket = "amqp://localhost:55555";
 var qName = "nodejs.demo";
 var encoding = "utf8";
 
