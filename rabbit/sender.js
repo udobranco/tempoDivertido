@@ -17,9 +17,11 @@ context.on("ready", function(){
 		var data = JSON.stringify({message:message})
 		pub.write(data, encoding);
 		console.log ("[x] sent mesage: %s", message)
-	
-		context.close();
-		console.log ("[x] Context closed");
+
+		setTimeout(function(){
+			context.close();
+			console.log ("[x] Context closed");
+		},0);
         });
 });
 
