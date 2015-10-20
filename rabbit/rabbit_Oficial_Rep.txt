@@ -1,10 +1,10 @@
 
 launch container with rabbitmq offical image. 
 >Image name will be some-rabbit 
->port 55555 will be expose to tcp 
+>port xx on docker will be mapped onto container on yy and will be expose to tcp 
 >can be attach/detach from shell
 >iterative
 
-docker run -dt -it -d --hostname my-rabbit --name some-rabbit --expose 55555 rabbitmq:3 /bin/bash
+docker run -dt -it -d --hostname my-rabbit --name some-rabbit -p xx:yy rabbitmq:3 /bin/bash
 
 
