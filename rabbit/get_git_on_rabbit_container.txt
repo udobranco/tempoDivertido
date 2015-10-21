@@ -3,5 +3,4 @@ how to get git to work inside the rabbit official rep image container
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24
 su -c "echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main' > /etc/apt/sources.list.d/git.list"
 
-apt-get update 
-apt-get install git
+apt-get update && apt-get install git -y && apt-get install vim -y && apt-get install npm && npm install rabbit.js && rabbitmq-server start &
