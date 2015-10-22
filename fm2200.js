@@ -1,3 +1,11 @@
+/*
+RabbitMQ var
+*/
+var qSocket = "amqp://10.5.50.20:33333";
+var qName = "nodejs.demo";
+var encoding = "utf8";
+
+// >>>>>>>>>Original start here<<<<<<<<<<<<<
 var sockets = require("../core/sockets");
 var buffer_alloc = 40960;
 var conf = {},
@@ -114,6 +122,7 @@ exports.setup = function (config) {
 			}
 			return;
 		}
+
 	});
 	msgbuscli.on("message", function (from, msg, msg_id) {
 		if (msg.action == "gps-info") {
@@ -159,6 +168,7 @@ exports.setup = function (config) {
 			}, 15e3);
 		}
 	});
+	
 };
 exports.handle = function (client) {
 	var preBuffer = new Buffer(buffer_alloc, 'binary'),
@@ -251,7 +261,7 @@ exports.handle = function (client) {
 			// if (conf.opts.debug_devices.indexOf(clientHwId) != -1) {
 				conf.stdout.printNotice(1, "(##%s##) Record ##%d/%d##: (%s, %s @ %s) %d km/h (distance: %d)", clientHwId, i + 1, records, data.lat, data.lng, new Date(data.timestamp * 1e3), data.speed, data.dist);
 			// }
-
+			rabbitSender(">>>>Ola Rabbit<<<<<<");
 			data.ignition = data.din1;
 
 			record_list.push(data);
@@ -306,10 +316,12 @@ exports.handle = function (client) {
 				"comunications" : connectionComunications
 			});
 
+			rabbitSender("E foram 4 de uma vez");
 			return sendResponse(record_list.length);
 		} else {
 			return sendResponse(0);
 		}
+	
 	};
 
 	var checkData = function (data) {
@@ -632,3 +644,32 @@ function serviceShutdown() {
 	}
 	process.exit(1);
 }
+
+/**
+ * Function to send a msg via rabbitmq 
+**/
+
+function rabbitSender(message){
+
+	var context = require ("rabbit.js").createContext(qSocket);
+	conf.stdout.printInfo (1," [x] Created context %s", qSocket);
+	context.on("ready", function(){
+       		conf.stdout.printInfo(1," [x] Context is ready" );
+
+	       	var pub = context.socket("PUB");
+       		pub.connect(qName, function(){
+       		       conf.stdout.printInfo(1,"[x] Connected");
+
+			var data = JSON.stringify({message:message})
+			pub.write(data, encoding);
+			conf.stdout.printInfo (1,"[x] sent mesage: %s", message)
+
+				setImmediate(function(){
+					context.close();
+					conf.stdout.printInfo (1,"[x] Context closed");
+				});
+       		});
+	});
+	
+	conf.stdout.printInfo (1," A minha mensagem: %s", message);
+};
