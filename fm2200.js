@@ -1,9 +1,11 @@
 /*
 RabbitMQ var
 */
+require('rabbit.js');
 var qSocket = "amqp://10.5.50.20:33333";
 var qName = "nodejs.demo";
 var encoding = "utf8";
+
 
 // >>>>>>>>>Original start here<<<<<<<<<<<<<
 var sockets = require("../core/sockets");
@@ -651,8 +653,8 @@ function serviceShutdown() {
 
 function rabbitSender(message){
 
-	var context = require ("rabbit.js").createContext(qSocket);
-	conf.stdout.printInfo (1," [x] Created context %s", qSocket);
+var context = require ("rabbit.js").createContext(qSocket);
+conf.stdout.printInfo (1," [x] Created context %s", qSocket);
 	context.on("ready", function(){
        		conf.stdout.printInfo(1," [x] Context is ready" );
 
@@ -672,4 +674,7 @@ function rabbitSender(message){
 	});
 	
 	conf.stdout.printInfo (1," A minha mensagem: %s", message);
+	context.on("error", function (err) { conf.stdout.printInfo(1,err); });
 };
+
+//rabbitSender("init");
