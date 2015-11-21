@@ -14,7 +14,7 @@ cd /usr/src
 rm -rf /usr/src/mysql-mgm
 
 mkdir /var/lib/mysql-cluster
-cp /home/tempodivertido/mysql-cluster/management_nodes/config.ini
+cp /tempodivertido/mysql-cluster/management_nodes/config.ini /var/lib/mysql-cluster
 
 ndb_mgmd -f /var/lib/mysql-cluster/config.ini --configdir=/var/lib/mysql-cluster/
 
