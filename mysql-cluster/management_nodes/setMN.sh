@@ -1,6 +1,7 @@
 mkdir /usr/src/mysql-mgm
 cd /usr/src/mysql-mgm
 
+apt-get install wget -y
 wget https://downloads.mariadb.com/archives/mysql-cluster-gpl-7.3/mysql-cluster-gpl-7.3.3-linux-glibc2.5-x86_64.tar.gz
 tar xvfz mysql-cluster-gpl-7.3.3-linux-glibc2.5-x86_64.tar.gz
 
