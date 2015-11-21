@@ -17,3 +17,8 @@ yum install perl-Data-Dumper -y
 
 echo "install shared gpl"
 yum install MySQL-Cluster-server-gpl-7.4.7-1.el7.x86_64.rpm -y
+
+echo "install firewalld" 
+yum install firewalld
+
+echo "Nothing to be done!"
