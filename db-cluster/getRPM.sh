@@ -19,6 +19,6 @@ echo "install shared gpl"
 yum install MySQL-Cluster-server-gpl-7.4.7-1.el7.x86_64.rpm -y
 
 echo "install firewalld" 
-yum install firewalld
+yum install firewalld -y
 
 echo "Nothing to be done!"
