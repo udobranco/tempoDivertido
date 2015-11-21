@@ -5,6 +5,6 @@ launch container with rabbitmq offical image.
 >can be attach/detach from shell
 >iterative
 
-docker run -dt -it -d --hostname my-rabbit --name some-rabbit -p xx:yy rabbitmq:3 /bin/bash
+docker run -dt -it -d --hostname my-rabbit --name some-rabbit -p 10.5.50.zz:xx:yy rabbitmq:3 /bin/bash
 
 
