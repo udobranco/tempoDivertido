@@ -34,7 +34,7 @@ rm -fr /usr/local/mysql/bin
 ln -s /usr/bin /usr/local/mysql/bin
 
 echo ">>>>> copying .cnf file to /etc/ <<<<<" 
-cp /tempodivertido/mysql-cluster/data_nodes/my.cnf /etc
+cp /tempodivertido/mysql-cluster/data_node/my.cnf /etc
 
 echo ">>>>> creating data folders for mySQL <<<<<"
 mkdir /var/lib/mysql-cluster
