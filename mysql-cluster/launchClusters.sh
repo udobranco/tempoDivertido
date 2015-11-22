@@ -11,11 +11,6 @@ docker run -dt -it --name ubuvm03 -p 10.5.50.32:44444:44444 ubuntu /bin/bash
 echo "Launching 2nd Data Node (5/5)"
 docker run -dt -it --name ubuvm04 -p 10.5.50.32:55555:55555 ubuntu /bin/bash    
 
-echo ">>>>> Please take note of the IP to change the Config files on the db cluster <<<<<"
-
-docker-ip ubuvm01
-docker-ip ubuvm02
-docker-ip ubuvm03
-docker-ip ubuvm04
+echo ">>>>> Please remember to change the IPs on the Config files of the db cluster <<<<<"
 
 echo "Done!"
