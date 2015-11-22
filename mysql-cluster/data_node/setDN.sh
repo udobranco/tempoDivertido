@@ -4,6 +4,7 @@ groupadd mysql
 useradd -g mysql mysql
 
 echo ">>>>> downloading and extrating files <<<<<"
+cd /usr/local/
 apt-get install wget -y
 wget https://downloads.mariadb.com/archives/mysql-cluster-gpl-7.3/mysql-cluster-gpl-7.3.3-linux-glibc2.5-x86_64.tar.gz
 tar xvfz mysql-cluster-gpl-7.3.3-linux-glibc2.5-x86_64.tar.gz
@@ -12,9 +13,9 @@ echo ">>>>> creating symbolic link  point to the extracted folder <<<<<"
 ln -s mysql-cluster-gpl-7.3.3-linux-glibc2.5-x86_64 mysql
 
 cd mysql
-apt-get install libaio1 libaio-dev
+apt-get install libaio1 libaio-dev -y
 
-echo">>>>> database install <<<<<"
+echo ">>>>> database install <<<<<"
 scripts/mysql_install_db --user=mysql --datadir=/usr/local/mysql/data
 
 echo ">>>>> changing the owner to the group user created <<<<<"
