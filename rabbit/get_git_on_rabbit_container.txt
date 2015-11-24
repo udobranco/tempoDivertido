@@ -5,6 +5,8 @@ su -c "echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main' > /et
 
 apt-get update && apt-get install git -y && apt-get install vim -y && apt-get install npm && npm install rabbit.js && rabbitmq-server start &
 
+glit clone https://github.com/udobranco/tempodivertido.git
+
 git config --global user.email udobranco@gmail.com
 git config --global user.name udobranco
 
