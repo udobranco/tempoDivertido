@@ -1,14 +1,14 @@
 
 HOW TO SETUP A CLUSTER
 1)  Choose a cluster to be the "steady" one.
-2)  Copy that cluster .erlang.cookie at /var/bin/
-3)  Start the rabbit on "clustered mode": rabbit-server -detached
+2)  Copy that cluster value .erlang.cookie at /var/bin/
+3)  Start the rabbit on "clustered mode": rabbitmq-server -detached
 4)  Check for sucess: rabbitmqctl cluster_status
 5)  Go to next cluster
-6)  Overwrite the .erlang.cookie value
+6)  Overwrite the .erlang.cookie value with the Steady node value
 7)  "Create" node with as in 3
 8)  Stop the node: rabbitmqctl stop_app
-9)  Join the steady cluster: rabbitmactl join_cluster rabbit@HOSTNAME_STEADY_NODE
+9)  Join the steady cluster: rabbitmqctl join_cluster rabbit@HOSTNAME_STEADY_NODE
 10) Start the node : rabbitmqctl start_app
 11) Check for sucess: rabbitmqctl cluster_status
 12) Repeat from 5) for the next cluster
